@@ -4,7 +4,7 @@ import React from 'react'
 
 const Server = async () => {
   const user: userDetails | null = await getLoggedInUser()
-  if (!user?.proMember) redirect('/')
+  if (!user) redirect('/')
   return (
     <main className="flex flex-col h-full items-center justify-center gap-2">
       <h1 className="text-3xl">Server Page</h1>

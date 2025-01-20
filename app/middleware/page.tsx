@@ -4,7 +4,7 @@ import React from 'react'
 
 const Middleware = async () => {
   const user: userDetails | null = await getLoggedInUser()
-  if (!user?.proMember) redirect('/')
+  if (!user) redirect('/')
   console.log('user', user)
   return (
     <main className="flex flex-col h-full items-center justify-center gap-2">
