@@ -8,8 +8,8 @@ interface userDetails {
   email: string
   userId: string
   username: string
-  total_credits: number
-  total_score: number
+  proMember: boolean
+  totalScore: number
 }
 
 interface userGamePlayed {

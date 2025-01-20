@@ -18,7 +18,7 @@ export default function Home() {
       }
     }
     checkAuth()
-  }, [])
+  }, [router])
   return (
     <main className="flex flex-col h-full items-center justify-center">
       <h1 className="text-3xl">Landing Page</h1>

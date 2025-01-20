@@ -37,6 +37,8 @@ export async function getLoggedInUser() {
         $id: result.$id,
         email: result.email,
         username: result.name,
+        // proMember: result.proMember,
+        // totalScore: result.totalScore,
       }
     }
     return JSON.parse(JSON.stringify(user))
@@ -50,15 +52,19 @@ export async function signUp(formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
   const username = formData.get('username') as string
-
+  console.log('signup-start', formData)
   try {
+    console.log('inside try for signup')
     const { account, database } = await createAdminClient()
+    console.log('account', account)
+    console.log('database', database)
     const newUserAccount = await account.create(
       ID.unique(),
       email,
       password,
       username
     )
+    console.log('newUserAccount', newUserAccount)
     if (!newUserAccount) throw new Error('Failed to create account')
 
     const newUser = await database.createDocument(
@@ -69,6 +75,8 @@ export async function signUp(formData: FormData) {
         userId: newUserAccount.$id,
         email: email,
         username: username,
+        proMember: false,
+        totalScore: 0,
       }
     )
 
