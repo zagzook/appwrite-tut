@@ -1,7 +1,8 @@
 import { getLoggedInUser } from '@/actions/auth'
 import Link from 'next/link'
 import React from 'react'
-import Logout from './Logout'
+import Logout from '../Logout'
+import Theme from '@/components/navagation/Theme'
 
 const Navbar = async () => {
   const user: userDetails | null = await getLoggedInUser()
@@ -31,6 +32,7 @@ const Navbar = async () => {
               <Logout />
             </>
           )}
+          <Theme />
         </div>
       </div>
     </nav>
