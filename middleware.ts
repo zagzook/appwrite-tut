@@ -5,7 +5,7 @@ import { getLoggedInUser } from './actions/auth'
 const protectedRoutes = ['/middleware', '/server', '/pro-games']
 const protectedproRoutes = ['/pro-games']
 
-export default async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const user: userDetails | null = await getLoggedInUser()
 
   const isProtectedRoute = protectedRoutes.some((route) =>
